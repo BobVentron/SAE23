@@ -1,0 +1,9 @@
+.full-width-button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.full-width-button span {
+    flex: 1;
+    text-align: center;
+}

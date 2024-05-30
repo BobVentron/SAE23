@@ -1,0 +1,170 @@
+<%inherit file="template.html"/>
+<script src="/static/js/bootstrap.bundle.in.js"></script>
+<link rel="stylesheet" href="/static/css/partie_direct_style.css" >
+
+<div class="form-container" id="container1">
+    <h2 class="mb-4">Voici les partie :</h2>
+    <div class="accordion" id="accordion1">
+        % for i, e in enumerate(partie):
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading${i}">
+                    <button class="accordion-button full-width-button" type="button" action="" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="false" aria-controls="collapse${i}">
+                        <span>${e[0]}</span>
+                        <span>${e[1][2]} VS ${e[1][3]}</span>
+                        <span>Score : ${e[1][0]}-${e[1][1]}</span>
+                    </button>
+                </h2>
+                <div id="collapse${i}" class="accordion-collapse collapse" aria-labelledby="heading${i}" data-bs-parent="#accordion1">
+                    <strong>
+                        <br>
+                        <p style="font-size: 17px; padding-left: 13px;">L'équipe une est composée des joueurs ${compo[i][0][8]} ${compo[i][0][7]} et ${compo[i][0][10]} ${compo[i][0][9]}</p>
+                        <p style="font-size: 17px; padding-left: 13px;">L'équipe numéro deux est composée des joueurs ${compo[i][0][12]} ${compo[i][0][11]} et ${compo[i][0][14]} ${compo[i][0][13]}</p>
+                    </strong>
+
+                    <div class="accordion-body">
+                        <div class="accordion" id="accordion2">
+                            % for d, b in enumerate(donne[i]):
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading1${d}">
+                                    <button class="accordion-button full-width-button" type="button" action="" data-bs-toggle="collapse" data-bs-target="#collapse1${d}" aria-expanded="false" aria-controls="collapse1${d}">
+                                        <span>Donne numero ${d+1}</span>
+                                        <span>Point fait par l'equipe 1 : ${b[0][1]}</span>
+                                        <span>Point fait par l'equipe 2 : ${b[0][2]}</span>
+                                    </button>
+                                </h2>
+                                <div id="collapse1${d}" class="accordion-collapse collapse" aria-labelledby="heading1${d}" data-bs-parent="#accordion2">
+                                    <div class="accordion-body">
+                                        % if b[0][20]  != None:
+                                            <strong><br> L'${b[0][3]} a remporter les encheres, elle part donc à ${b[0][22]} à ${b[0][21]}.<br></strong>                                              
+                                        % endif
+                                        % for annonce in b:
+                                            % if annonce[13] == 1 :
+                                                <br> Le joueur ${annonce[18]} ${annonce[17]} a eux une belote 
+                                            % endif
+                                            % if annonce[12] == "1" or annonce[12] == "2":
+                                                <br> Le joueur ${annonce[18]} ${annonce[17]} a eux ${annonce[12]} tierce(s) 
+                                            % endif
+                                            % if annonce[11] == "1" or annonce[11] == "2"  :
+                                                <br> Le joueur ${annonce[18]} ${annonce[17]} a eux ${annonce[11]} cinquante 
+                                            % endif
+                                            % if annonce[10] == 1 :
+                                                <br> Le joueur ${annonce[18]} ${annonce[17]} a eux un 100  
+                                            % endif
+                                            % if annonce[9] != "" and annonce[9] != "null" and annonce[9] != None:
+                                                <br> Le joueur ${annonce[18]} ${annonce[17]} a eux un carré de ${annonce[9]} 
+                                            % endif
+                                            % if annonce[8] != "" and annonce[8] != "null" and annonce[9] != None:
+                                                <br> Le joueur ${annonce[18]} ${annonce[17]} a eux un carré de ${annonce[8]} 
+                                            % endif
+                                        % endfor
+                                    </div>
+                                </div>
+                            </div>
+                            % endfor
+                            % if e[0] == "Partie en cours":
+                                <br>
+                                <button onclick="afficherFormulaire2(`${d}`)" class="btn btn-outline-success" id="btn1">Ajouter une donne</button>
+                                <div id="formulairePartie2${d}" style="display: none;">
+                                    <br>
+                                    <form action="Afich_Partie_Direct_Insert2" method="POST" class="needs-validation" novalidate>
+                                        <input type="hidden" name="idPartie" value="${e[1][4]}">
+                                        <input type="hidden" name="id_equipe1" value="${e[1][5]}">
+                                        <input type="hidden" name="id_equipe2" value="${e[1][6]}">
+                                        <div class="form-group">
+                                            <label for="points_equipe1">Points de l'équipe 1 :</label>
+                                            <input type="number" pattern="[0-9]+" class="form-control" id="points_equipe1" name="points_equipe1" required>
+                                            <div class="valid-feedback">Valide.</div>
+                                            <div class="invalid-feedback">Veuillez entrer les points de l'équipe 1.</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="points_equipe2">Points de l'équipe 2 :</label>
+                                            <input type="number"  pattern="[0-9]+" class="form-control" id="points_equipe2" name="points_equipe2" required>
+                                            <div class="valid-feedback">Valide.</div>
+                                            <div class="invalid-feedback">Veuillez entrer les points de l'équipe 2.</div>
+                                        </div>
+                                        <br>
+                                        <button type="submit" class="btn btn-outline-success" id="btn1">Insérer</button>
+                                    </form>
+                                </div>
+                            % else:
+                                <br>
+                                <p>La partie est fini.</p>
+                            % endif
+                        </div>
+                    </div>
+                </div>
+                </br>
+            </div>
+        % endfor
+    </div>
+    <br>
+    <button onclick="afficherFormulaire1()" class="btn btn-outline-success" id="btn1">Ajouter une partie</button>
+    <div id="formulairePartie" style="display: none;">
+        <br>
+        <form action="Afich_Partie_Direct_Insert1" method="POST" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="date_partie">Date de la partie :</label>
+                <input type="date" class="form-control" id="date_partie" name="date_partie" required>
+                <div class="valid-feedback">Valide.</div>
+                <div class="invalid-feedback">Veuillez entrer la date de la partie.</div>
+            </div>
+            <div class="form-group">
+                <label for="heure_debut">Heure de début de la partie :</label>
+                <input type="time" class="form-control" id="heure_debut" name="heure_debut" required>
+                <div class="valid-feedback">Valide.</div>
+                <div class="invalid-feedback">Veuillez entrer l'heure de début de la partie.</div>
+            </div>
+            <div class="form-group">
+                <label for="lieu_partie">Lieu de la partie :</label>
+                <input type="text" class="form-control" id="lieu_partie" name="lieu_partie" required>
+                <div class="valid-feedback">Valide.</div>
+                <div class="invalid-feedback">Veuillez entrer le lieu de la partie.</div>
+            </div>
+            <div class="form-group">
+                <label for="equipe1">Équipe 1:</label>
+                <select class="form-control" id="equipe1" name="equipe1" required>
+                    <option value="">Sélectionner une équipe</option>
+                    % for e in equipe:
+                        <option value="${e[0]}">${e[1]}</option>
+                    % endfor
+                </select>
+                <div class="valid-feedback">Valide.</div>
+                <div class="invalid-feedback">Veuillez sélectionner la première équipe.</div>
+            </div>
+            <div class="form-group">
+                <label for="equipe2">Équipe 2:</label>
+                <select class="form-control" id="equipe2" name="equipe2" required>
+                    <option value="">Sélectionner une équipe</option>
+                    % for e in equipe:
+                        <option value="${e[0]}">${e[1]}</option>
+                    % endfor
+                </select>
+                <div class="valid-feedback">Valide.</div>
+                <div class="invalid-feedback">Veuillez sélectionner la deuxième équipe.</div>
+            </div>
+            <br>
+            <p>Initialisation de la première donne : </p>
+            <div class="form-group">
+                <label for="points_equipe1">Points de l'équipe 1 :</label>
+                <input type="number" pattern="[0-9]+" class="form-control" id="points_equipe1" name="points_equipe1" required>
+                <div class="valid-feedback">Valide.</div>
+                <div class="invalid-feedback">Veuillez entrer les points de l'équipe 1.</div>
+            </div>
+            <div class="form-group">
+                <label for="points_equipe2">Points de l'équipe 2 :</label>
+                <input type="number"  pattern="[0-9]+" class="form-control" id="points_equipe2" name="points_equipe2" required>
+                <div class="valid-feedback">Valide.</div>
+                <div class="invalid-feedback">Veuillez entrer les points de l'équipe 2.</div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-success" id="btn1">Insérer</button>
+        </form>
+    </div>
+</div>
+
+<div class="background">
+	<img src="static/images/as.png" alt="Carte 1" class="rotating-image img1" id="rotating-image-1">
+	<img src="static/images/carreau.png" alt="Carte 2" class="rotating-image img2" id="rotating-image-2">
+	<img src="static/images/Coeur.png" alt="Carte 3" class="rotating-image img3" id="rotating-image-3">
+	<img src="static/images/trefle2.png" alt="Carte 4" class="rotating-image img4" id="rotating-image-4">
+</div>

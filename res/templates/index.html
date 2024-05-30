@@ -1,0 +1,203 @@
+<%inherit file="template.html"/>
+
+<link rel="stylesheet" href="/static/css/index.css" >
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4" id="Titrepage">Bienvenue sur La Coinche</h1>
+    <h2>Les règles de la Coinche</h2>
+    <p>La coinche est un jeu de cartes (32 cartes) qui se joue en 2 contre 2. La partie se déroule en plusieurs donnes (également appelées mènes) et se termine lorsqu’une équipe atteint ou dépasse 3000 points.</p>
+  
+    <h3>Les règles en détail :</h3>
+  
+    <h4>Distribution des cartes :</h4>
+    <p>Le donneur distribue deux fois trois cartes à chaque joueur.</p>
+  
+    <h4>Enchères :</h4>
+    <div class="text-with-image">
+      <p>Les joueurs s'expriment chacun à leur tour en commençant par le joueur placé à droite du donneur. Les joueurs peuvent passer leur tour ou enchérir. Un joueur fait une enchère en désignant clairement le nombre de points qu’ils pensent que son équipe peut faire et la couleur de l'atout qu'il choisit ou potentiellement s’il part sans atout (donc les as sont les cartes les plus fortes). L’enchère doit être de 82 au minimum et ou doit être un multiple de 5 et doit être supérieure à l'enchère précédente (par exemple 85 cœurs, 90 piques, 105 carreaux). Au lieu de dire un nombre, il est possible à tout moment de demander un capot, engageant alors l’équipe à remporter les huit plis. Il n’existe pas d’enchère supérieure au capot, dès lors, l’équipe adverse ne peut plus que passer ou coincher. Un joueur peut coincher une enchère adverse, mettant ainsi en doute la capacité de son adversaire à réaliser son contrat et qui aura pour effet de multiplier par deux les scores de la donne. Lorsqu’une équipe a coinché, l’équipe adverse a la possibilité de surcoincher et le score de la donne sera multiplié par 4.</p>
+      <img src="/static/images/main_carte.jpg">
+    </div>
+
+    <h4>Jeux :</h4>
+    <div class="text-with-image">
+      <img src="/static/images/main_carte2.jpg">
+      <p>Le donneur distribue les deux dernières cartes manquantes à chaque joueur. Le joueur situé à droite du donneur joue la carte de son choix. Les trois autres joueurs jouent alors une carte chacun leur tour, toujours dans le sens inverse des aiguilles d’une montre, et en suivant les règles ci-dessous. Le pli est remporté par le joueur qui a joué la plus forte carte à l'atout ou, à défaut, à la couleur demandée. Ce dernier entame le pli suivant, et ainsi de suite.</p>
+    </div>
+
+    <h4>Comptage des points :</h4>
+    
+      <p>Chaque camp totalise ses points, à savoir :<br>
+        - Le nombre de points contenus dans les plis réalisés par son équipe,<br>
+        - Le dix de der (avoir fait la dernière plie),<br>
+        - La belote/rebelote, (Avoir la dame et le roi à l’atout),<br>
+        - Ses annonces éventuelles.
+      </p>
+
+
+    <h4>Valeurs des cartes :</h4>
+    <p>Les cartes qui sont des atouts (les cartes de la couleur citées lors de l’enchère) valent les valeurs affichées dans le tableau suivant :</p>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Carte</th>
+          <th>Valeur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Valet</td>
+          <td>20 points</td>
+        </tr>
+        <tr>
+          <td>Neuf</td>
+          <td>14 points</td>
+        </tr>
+        <tr>
+          <td>As</td>
+          <td>11 points</td>
+        </tr>
+        <tr>
+          <td>Dix</td>
+          <td>10 points</td>
+        </tr>
+        <tr>
+          <td>Dame</td>
+          <td>3 points</td>
+        </tr>
+        <tr>
+          <td>Huit</td>
+          <td>0 points</td>
+        </tr>
+        <tr>
+          <td>Sept</td>
+          <td>0 points</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p>Les autres cartes valent les points suivants :<br></p>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+          <tr>
+              <th>Carte</th>
+              <th>Points</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>As</td>
+              <td>11 points</td>
+          </tr>
+          <tr>
+              <td>Dix</td>
+              <td>10 points</td>
+          </tr>
+          <tr>
+              <td>Roi</td>
+              <td>4 points</td>
+          </tr>
+          <tr>
+              <td>Dame</td>
+              <td>3 points</td>
+          </tr>
+          <tr>
+              <td>Valet</td>
+              <td>2 points</td>
+          </tr>
+          <tr>
+              <td>Neuf</td>
+              <td>0 points</td>
+          </tr>
+          <tr>
+              <td>Huit</td>
+              <td>0 points</td>
+          </tr>
+          <tr>
+              <td>Sept</td>
+              <td>0 points</td>
+          </tr>
+      </tbody>
+  </table>
+    <p>Dans le cas où l’enchère est sans atout, les points des cartes sont les suivants :</p>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+          <tr>
+              <th>Carte</th>
+              <th>Points</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>As</td>
+              <td>19 points</td>
+          </tr>
+          <tr>
+              <td>Dix</td>
+              <td>10 points</td>
+          </tr>
+          <tr>
+              <td>Roi</td>
+              <td>4 points</td>
+          </tr>
+          <tr>
+              <td>Dame</td>
+              <td>3 points</td>
+          </tr>
+          <tr>
+              <td>Valet</td>
+              <td>2 points</td>
+          </tr>
+          <tr>
+              <td>Neuf</td>
+              <td>0 points</td>
+          </tr>
+          <tr>
+              <td>Huit</td>
+              <td>0 points</td>
+          </tr>
+          <tr>
+              <td>Sept</td>
+              <td>0 points</td>
+          </tr>
+      </tbody>
+  </table>
+    <h4>Annonces :</h4>
+    <p>Dans le jeu, il y a aussi la présence d’annonces qui font gagner un certain nombre de points et qui sont les suivantes :<br>
+      - Le carré (avoir 4 cartes de la même hauteur), voici le détail des points des différents carrés.
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Carte</th>
+            <th>Valeur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4 Valets</td>
+            <td>200 points</td>
+          </tr>
+          <tr>
+            <td>4 Neufs</td>
+            <td>150 points</td>
+          </tr>
+          <tr>
+            <td>4 As</td>
+            <td>100 points</td>
+          </tr>
+          <tr>
+            <td>4 Rois</td>
+            <td>100 points</td>
+          </tr>
+          <tr>
+            <td>4 Dames</td>
+            <td>100 points</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        - Le Cent : 5 cartes qui se suivent dans la même couleur en respectant l'ordre suivant : 7 8 9 10 Valet Dame Roi As. Le cent vaut 100 points.<br>
+        - Le Cinquante : 4 cartes qui se suivent dans la même couleur. Cette annonce vaut 50 points.<br>
+        - La Tierce : 3 cartes qui se suivent de la même couleur et qui vaut 20 points.
+      </p>
+    </p>
+  </div>

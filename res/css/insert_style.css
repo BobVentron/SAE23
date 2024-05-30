@@ -1,0 +1,16 @@
+.needs-validation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.needs-validation .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+#btn1{
+    margin-top: 4%;
+    height: 10%;
+    width: 10%;
+}

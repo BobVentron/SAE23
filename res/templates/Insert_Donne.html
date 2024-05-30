@@ -1,0 +1,60 @@
+<%inherit file="template.html"/>
+
+<link rel="stylesheet" href="/static/css/insert_style.css" >
+
+<div class="form-container" id="container1">
+  <h3>Insertion d'une donne</h3>
+
+  <pre>
+  Insertion de données dans la base.
+  </pre>
+  <p class="message alert alert-${type}">${message}</p>
+  
+  <form action="doInsertDonne" method="POST" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="point_equipe1">Entrez les points de l'équipe 1 :</label>
+        <input type="number" pattern="[0-9]+" class="form-control" id="point_equipe1" placeholder="Entrez les points de l'équipe 1" name="point_equipe1" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Remplir ce champ, SVP!</div>
+      </div>
+      <div class="form-group">
+        <label for="point_equipe2">Entrez les points de l'équipe 2 :</label>
+        <input type="number" pattern="[0-9]+" class="form-control" id="point_equipe2" placeholder="Entrez les points de l'équipe 2" name="point_equipe2" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Remplir ce champ, SVP!</div>
+      </div>
+      <div class="form-group">
+        <label for="win_enchere">Entrez l'équipe gagnante de l'enchère (equipe1 ou equipe2) :</label>
+        <select class="form-control" id="win_enchere" name="win_enchere" required>
+          <option value="equipe1">Equipe 1</option>
+          <option value="equipe2">Equipe 2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="id_equipe1">Entrez l'ID de l'équipe 1 :</label>
+        <input type="number" pattern="[0-9]+" class="form-control" id="id_equipe1" placeholder="Entrez l'ID de l'équipe 1" name="id_equipe1" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Remplir ce champ, SVP!</div>
+      </div>
+      <div class="form-group">
+        <label for="id_equipe2">Entrez l'ID de l'équipe 2 :</label>
+        <input type="number" pattern="[0-9]+" class="form-control" id="id_equipe2" placeholder="Entrez l'ID de l'équipe 2" name="id_equipe2" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Remplir ce champ, SVP!</div>
+      </div>
+      <div class="form-group">
+        <label for="id_partie">Entrez l'ID de la partie :</label>
+        <input type="number" pattern="[0-9]+" class="form-control" id="id_partie" placeholder="Entrez l'ID de la partie" name="id_partie" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Remplir ce champ, SVP!</div>
+      </div>
+      <button type="submit" class="btn btn-outline-success" id="btn1">Insérer</button>
+  </form>
+</div>
+
+<div class="background">
+	<img src="static/images/as.png" alt="Carte 1" class="rotating-image img1" id="rotating-image-1">
+	<img src="static/images/carreau.png" alt="Carte 2" class="rotating-image img2" id="rotating-image-2">
+	<img src="static/images/Coeur.png" alt="Carte 3" class="rotating-image img3" id="rotating-image-3">
+	<img src="static/images/trefle2.png" alt="Carte 4" class="rotating-image img4" id="rotating-image-4">
+</div>

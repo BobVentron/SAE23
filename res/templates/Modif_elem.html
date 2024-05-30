@@ -1,0 +1,141 @@
+<%inherit file="template.html"/>
+
+<p class="message alert alert-${type}">${message}</p>
+
+<div class="form-container" id="container1">
+    <div class="element-liste">
+        <h3 class="text-center">Modification dans la table ${tablesupr}</h3>
+
+        <div id="liste-elements">
+            % for i, e in enumerate(liste) :
+            <div class="list-group-item rounded" >
+                <div style="display: flex; align-items: center;">
+                    <div style="flex-grow: 1;">
+                        ${e[1]}
+                    </div>
+                    <div style="display: inline;">
+                        <button onclick="afficherFormulaire('${table}', '${i}')" class="btn btn-primary" >Modifier</button>
+                    </div>
+                </div>
+                <br />
+                <form id="form-${table}-${i}" class="form-${table}" action="DoModifier" method="post" style="display: none;">
+                    <input type="hidden" name="id" value="${e[0]}">
+                    <input type="hidden" name="table" value="${table}">
+                    
+                    % if table == 6 :
+                        <!-- Champs spécifiques pour table 6 -->
+                        <label for="date_partie-${table}-${i}">Date de la partie:</label>
+                        <input type="date" id="date_partie-${table}-${i}" name="date_partie"><br>
+                        <label for="heure_debut-${table}-${i}">Heure de début:</label>
+                        <input type="time" id="heure_debut-${table}-${i}" name="heure_debut"><br>
+                        <label for="adresse-${table}-${i}">Adresse:</label>
+                        <input type="text" id="adresse-${table}-${i}" name="adresse"><br>
+                    % elif table == 5 :
+                        <!-- Champs spécifiques pour table 5 -->
+                        <label for="nom-${table}-${i}">Nom:</label>
+                        <input type="text" id="nom-${table}-${i}" name="nom"><br>
+                        <label for="prenom-${table}-${i}">Prénom:</label>
+                        <input type="text" id="prenom-${table}-${i}" name="prenom"><br>
+                        <label for="date-${table}-${i}">Date de naissance:</label>
+                        <input type="date" id="date-${table}-${i}" name="date_naissance"><br>
+                    % elif table == 4 : 
+                        <label for="nom-${table}-${i}">Nom de l'équipe:</label>
+                        <input type="text" id="nom-${table}-${i}" name="nom_equipe"><br>
+                        <label for="prenom-${table}-${i}">Description de l'équipe:</label>
+                        <input type="text" id="prenom-${table}-${i}" name="description_equipe"><br>
+                        <label for="date-${table}-${i}">Id du joueur 1:</label>
+                        <input type="number" pattern="[0-9]+" id="date-${table}-${i}" name="id_joueur1"><br>
+                        <label for="date-${table}-${i}">Id du joueur 2:</label>
+                        <input type="number" pattern="[0-9]+" id="date-${table}-${i}" name="id_joueur2"><br>
+                    % elif table == 3 :
+                        <label for="points-equipe1">Entrez les points de l'équipe 1 :</label>
+                        <input type="number" id="points-equipe1" name="points_equipe1"><br>
+                        <label for="points-equipe2">Entrez les points de l'équipe 2 :</label>
+                        <input type="number" id="points-equipe2" name="points_equipe2"><br>        
+                        <label for="equipe-gagnante">Entrez l'équipe gagnante de l'enchère (equipe1 ou equipe2) :</label>
+                        <select id="equipe-gagnante" name="equipe_gagnante">
+                            <option value="equipe1">null</option>
+                            <option value="equipe1">Équipe 1</option>
+                            <option value="equipe2">Équipe 2</option>
+                        </select><br>
+                        <label for="id-equipe1">Entrez l'ID de l'équipe 1 :</label>
+                        <input type="text" id="id-equipe1" name="id_equipe1"><br>
+                        <label for="id-equipe2">Entrez l'ID de l'équipe 2 :</label>
+                        <input type="text" id="id-equipe2" name="id_equipe2"><br>
+                        <label for="id-partie">Entrez l'ID de la partie :</label>
+                        <input type="text" id="id-partie" name="id_partie"><br>
+                    % elif table == 2 : 
+                        <label for="couleur">Entrez une couleur :</label>
+                        <select id="couleur" name="couleur">
+                            <option value="null">null</option>
+                            <option value="trefle">Trèfle</option>
+                            <option value="coeur">Coeur</option>
+                            <option value="pique">Pique</option>
+                            <option value="careau">Carreau</option>
+                        </select><br>
+                        <label for="montant-enchere">Entrez le montant de l'enchère :</label>
+                        <input type="number" id="montant-enchere" name="montant_enchere"><br>
+                        <label for="id-joueur">Entrez l'ID du joueur :</label>
+                        <input type="number" id="id-joueur" name="id_joueur"><br>
+                        <label for="id-donne">Entrez l'ID de la donne :</label>
+                        <input type="number" id="id-donne" name="id_donne"><br>
+                    % elif table == 1 : 
+                        <label for="carré-1">Si le joueur a eu un carré, entrez l'élément correspondant à ce dernier :</label>
+                        <select id="carré-1" name="carre_1">
+                            <option value="null">null</option>
+                            <option value="as">As</option>
+                            <option value="roi">Roi</option>
+                            <option value="dame">Dame</option>
+                            <option value="valets">Valet</option>
+                            <option value="dix">Dix</option>
+                            <option value="neuf">Neuf</option>
+                            <option value="huit">Huit</option>
+                            <option value="sept">Sept</option>
+                        </select><br>
+                    
+                        <label for="carré-2">Si le joueur a eu un deuxième carré, entrez l'élément correspondant à ce dernier :</label>
+                        <select id="carré-2" name="carre_2">
+                            <option value="null">null</option>
+                            <option value="as">As</option>
+                            <option value="roi">Roi</option>
+                            <option value="dame">Dame</option>
+                            <option value="valets">Valet</option>
+                            <option value="dix">Dix</option>
+                            <option value="neuf">Neuf</option>
+                            <option value="huit">Huit</option>
+                            <option value="sept">Sept</option>
+                        </select><br>
+                    
+                        <label for="cent">Entrez 1 si le joueur a eu un cent et 0 sinon :</label>
+                        <input type="number" id="cent" name="cent" min="0" max="1"><br>
+                    
+                        <label for="nombre-50">Entrez le nombre de 50 (0, 1 ou 2) :</label>
+                        <input type="number" id="nombre-50" name="nombre_50" min="0" max="2"><br>
+                    
+                        <label for="tierces">Le nombre de tierces doit être 0, 1 ou 2 :</label>
+                        <input type="number" id="tierces" name="tierces" min="0" max="2"><br>
+                    
+                        <label for="belote">Belote doit être 0 ou 1 :</label>
+                        <input type="number" id="belote" name="belote" min="0" max="1"><br>
+                    
+                        <label for="id-joueur-A">Entrez l'ID du joueur :</label>
+                        <input type="number" id="id-joueur" name="id_joueur_A"><br>
+                    
+                        <label for="id-donne-A">Entrez l'ID de la donne :</label>
+                        <input type="number" id="id-donne" name="id_donne_A"><br>
+                    % endif
+                    
+                    <input type="submit" value="Valider" class="btn btn-primary">
+                </form>
+            </div>
+            % endfor
+        </div>
+    </div>
+</div>
+
+<div class="background">
+	<img src="static/images/as.png" alt="Carte 1" class="rotating-image img1" id="rotating-image-1">
+	<img src="static/images/carreau.png" alt="Carte 2" class="rotating-image img2" id="rotating-image-2">
+	<img src="static/images/Coeur.png" alt="Carte 3" class="rotating-image img3" id="rotating-image-3">
+	<img src="static/images/trefle2.png" alt="Carte 4" class="rotating-image img4" id="rotating-image-4">
+</div>

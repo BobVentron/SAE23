@@ -1,0 +1,52 @@
+<%inherit file="template.html"/>
+
+<link rel="stylesheet" href="/static/css/insert_style.css" >
+
+<div class="form-container" id="container1">
+    <h3>Insertion d'une annonce</h3>
+
+    <pre>
+    Insertion de données dans la base.
+    </pre>
+    <p class="message alert alert-${type}">${message}</p>
+    
+    <form action="doInsertEncheres" method="POST" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="couleur">Entrez une couleur :</label>
+            <select class="form-control" id="couleur" name="couleur" required>
+                <option value="pique">Pique</option>
+                <option value="coeur">Coeur</option>
+                <option value="carreau">Carreau</option>
+                <option value="trefle">Trèfle</option>
+            </select>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Choisissez une couleur!</div>
+        </div>
+        <div class="form-group">
+            <label for="montant">Entrez le montant de l'enchère :</label>
+            <input type="number" pattern="[0-9]+" class="form-control" id="montant" name="montant" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Montant invalide!</div>
+        </div>
+        <div class="form-group">
+            <label for="id_joueur">Entrez l'ID du joueur :</label>
+            <input type="number" pattern="[0-9]+" class="form-control" id="id_joueur" name="id_joueur" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">L'ID du joueur doit être un chiffre!</div>
+        </div>
+        <div class="form-group">
+            <label for="id_donne">Entrez l'ID de la donne :</label>
+            <input type="number" pattern="[0-9]+" class="form-control" id="id_donne" name="id_donne" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">L'ID de la donne doit être un chiffre!</div>
+        </div>
+        <button type="submit" class="btn btn-outline-success" id="btn1">Insérer</button>
+    </form>
+</div>
+
+<div class="background">
+	<img src="static/images/as.png" alt="Carte 1" class="rotating-image img1" id="rotating-image-1">
+	<img src="static/images/carreau.png" alt="Carte 2" class="rotating-image img2" id="rotating-image-2">
+	<img src="static/images/Coeur.png" alt="Carte 3" class="rotating-image img3" id="rotating-image-3">
+	<img src="static/images/trefle2.png" alt="Carte 4" class="rotating-image img4" id="rotating-image-4">
+</div>

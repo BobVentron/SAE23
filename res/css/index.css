@@ -1,0 +1,115 @@
+.container {
+    max-width: 1000px; /* Ajustement de la largeur maximale */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333; /* Couleur du texte */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Ombre légère pour le texte */
+}
+
+.container p {
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size:113%;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container img:hover {
+    transform: scale(1.05);
+}
+
+.container table {
+    width: 80%;
+    margin: 0 auto; /* Centrer horizontalement */
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container th, .container td {
+    padding: 10px; /* Réduction de la taille des cellules */
+    border: none;
+    text-align: left;
+    background-color: #f8f9fa; /* Couleur de fond des cellules */
+}
+
+.container th {
+    background-color: #343a40;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Ombre légère pour le texte */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.container th:hover {
+    background-color: #495057; /* Changement de couleur de fond au survol */
+}
+
+.container .mt-5 {
+    margin-top: 5rem;
+}
+
+.container .mb-4 {
+    margin-bottom: 4rem;
+}
+
+.container .text-center {
+    text-align: center;
+}
+
+.container .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Alignement au début de la ligne */
+}
+
+.container .text-with-image {
+    flex: 1 1 calc(50% - 10px); /* Largeur de 50% avec un espace de 10px entre les éléments */
+    margin-right: 20px; /* Marge à droite pour espacer les éléments */
+}
+
+.container .text-with-image:last-child {
+    margin-right: 0; /* Supprimer la marge à droite du dernier élément */
+}
+
+.text-with-image {
+    display: flex;
+    align-items: center;
+}
+
+.text-with-image > img {
+    margin-left: 20px; /* Marge à gauche pour séparer l'image du texte */
+    margin-right: 20px;
+    max-width: 40%; /* Limiter la largeur de l'image */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+  
+    .text-with-image {
+        flex-direction: column; /* Afficher le texte et l'image l'un au-dessus de l'autre sur les petits écrans */
+        align-items: flex-start; /* Aligner le texte et l'image au début de leur div parent */
+    }
+  
+    .text-with-image > img {
+        margin-left: 0; /* Supprimer la marge à gauche sur les petits écrans */
+        margin-top: 10px; /* Ajouter une marge en haut de l'image sur les petits écrans */
+        max-width: 100%; /* Utiliser la largeur maximale sur les petits écrans */
+    }
+}
