@@ -4,8 +4,8 @@ import sys
 _dbConfig = { #configuration de base 
     'driver' : "MySQL",
     'host' : "localhost",
-    'user' : "root",
-    'passwd' : "",
+    'user' : "admin",
+    'passwd' : "admin",
     'port' : 3306,     # port MySQL standard (par défaut)
     'db' : "soleilhac_sae",
     'path' : "./utils/donneeCoinche.csv"
@@ -27,6 +27,7 @@ def dbConnect() -> tuple:
     Cette fonction permet de ce connecter a la base de données 
     et renvoie les élément utils a l'éxécution des requetes
     """
+    majParamsConnexion()
     db = pymysql.connect(host = _dbConfig['host'], user=_dbConfig['user'], passwd=_dbConfig['passwd'], port=int(_dbConfig['port']), db = _dbConfig['db'])
     return (db,db.cursor())
 
@@ -38,7 +39,6 @@ def execute(req : str) :
     ou elle renvoie le resultat des autres requetes sans oublier de les commits 
     """
     try : 
-        print(req)
         _dbEtudiant, _cursorEtudiant = dbConnect()
         res = _cursorEtudiant.execute(req)
         if "select" in req or "SELECT" in req: res = _cursorEtudiant.fetchall()

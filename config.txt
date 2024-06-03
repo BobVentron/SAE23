@@ -7,8 +7,8 @@ driver: "MySQL"
 #driver: "SQLite"
 host: "localhost"
 db : "soleilhac_sae"
-user : "root"
-passwd : 
+user : "admin"
+passwd : "admin"
 port: 3306
 
 [/favicon.ico]

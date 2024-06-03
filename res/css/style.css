@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Chunkfive';
-    src: url('../static/font/Chunkfive\ Ex.ttf') format('truetype');
+    src: url('/static/font/Chunkfive\ Ex.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'dejavu-serif';
-    src: url('../static/font/dejavu-serif.ttf') format('truetype');
+    src: url('/static/font/dejavu-serif.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'BroncoPersonalUse';
-    src: url('../static/font/BroncoPersonalUse.ttf') format('truetype');
+    src: url('/static/font/BroncoPersonalUse.ttf') format('truetype');
 }
 
 p{

@@ -1,8 +1,11 @@
+<!-- Templates de la partie dynamique/public du site-->
 <%inherit file="template.html"/>
-<script src="/static/js/bootstrap.bundle.in.js"></script>
+
+
 <link rel="stylesheet" href="/static/css/partie_direct_style.css" >
 
 <div class="form-container" id="container1">
+    <p class="message alert alert-${type}">${message}</p>
     <h2 class="mb-4">Voici les partie :</h2>
     <div class="accordion" id="accordion1">
         % for i, e in enumerate(partie):
@@ -17,9 +20,13 @@
                 <div id="collapse${i}" class="accordion-collapse collapse" aria-labelledby="heading${i}" data-bs-parent="#accordion1">
                     <strong>
                         <br>
-                        <p style="font-size: 17px; padding-left: 13px;">L'équipe une est composée des joueurs ${compo[i][0][8]} ${compo[i][0][7]} et ${compo[i][0][10]} ${compo[i][0][9]}</p>
-                        <p style="font-size: 17px; padding-left: 13px;">L'équipe numéro deux est composée des joueurs ${compo[i][0][12]} ${compo[i][0][11]} et ${compo[i][0][14]} ${compo[i][0][13]}</p>
-                    </strong>
+                        % if compo[i] == () :
+                            <p style="font-size: 17px; padding-left: 13px;">Nous n'avons pas toutes les informations nécessaires pour afficher la composition de cette équipe</p>
+                        % else:
+                            <p style="font-size: 17px; padding-left: 13px;">L'équipe une est composée des joueurs ${compo[i][0][8]} ${compo[i][0][7]} et ${compo[i][0][10]} ${compo[i][0][9]}</p>
+                            <p style="font-size: 17px; padding-left: 13px;">L'équipe numéro deux est composée des joueurs ${compo[i][0][12]} ${compo[i][0][11]} et ${compo[i][0][14]} ${compo[i][0][13]}</p>
+                        % endif
+                        </strong>
 
                     <div class="accordion-body">
                         <div class="accordion" id="accordion2">
@@ -164,7 +171,7 @@
 
 <div class="background">
 	<img src="static/images/as.png" alt="Carte 1" class="rotating-image img1" id="rotating-image-1">
-	<img src="static/images/carreau.png" alt="Carte 2" class="rotating-image img2" id="rotating-image-2">
-	<img src="static/images/Coeur.png" alt="Carte 3" class="rotating-image img3" id="rotating-image-3">
-	<img src="static/images/trefle2.png" alt="Carte 4" class="rotating-image img4" id="rotating-image-4">
+    <img src="static/images/carreau.png" alt="Carte 2" class="rotating-image img2" id="rotating-image-2">
+    <img src="static/images/coeur.png" alt="Carte 3" class="rotating-image img3" id="rotating-image-3">
+    <img src="static/images/trefle2.png" alt="Carte 4" class="rotating-image img4" id="rotating-image-4">
 </div>

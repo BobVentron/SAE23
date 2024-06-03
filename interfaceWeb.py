@@ -355,7 +355,8 @@ class InterfaceWeb(object):
 #                        Partie dynamique                                             #
 #######################################################################################  
 
-    def Afich_Partie_Direct(self):
+    @cherrypy.expose
+    def Afich_Partie_Direct(self, message="", typ=""):
         """Affiche l'état des parties en direct, ainsi que leurs informations détaillées."""
         liste = getListe('selectPartieDirect')
         listeEquipe = getmkliste("equipe")
@@ -405,7 +406,7 @@ class InterfaceWeb(object):
                 newListe.append([text, e])
 
         mytemplate = mylookup.get_template("Partie_Direct.html")        
-        return mytemplate.render(partie=newListe+newListefin, donne=listeDonne+listeDonnefin, equipe = listeEquipe, compo = listeCompo+listeCompofin)
+        return mytemplate.render(partie=newListe+newListefin, donne=listeDonne+listeDonnefin, equipe = listeEquipe, compo = listeCompo+listeCompofin, message=message, typ=typ)
 
     @cherrypy.expose
     def Afich_Partie_Direct_Insert1(self, points_equipe1, points_equipe2, equipe2, equipe1, lieu_partie, heure_debut, date_partie):
@@ -421,16 +422,20 @@ class InterfaceWeb(object):
             heure_debut (str): Heure de début de la partie.
             date_partie (str): Date de la partie.
         """
+        message=""
+        typ=""
         try:
-            doInsertPartie(date_partie, heure_debut, lieu_partie)
-            idPartie = doselectPartieID(date_partie, heure_debut, lieu_partie)[0][0]
-            doInsertDonne(points_equipe1, points_equipe2, "null", equipe1, equipe2, idPartie)
+            if equipe1 == equipe2 : 
+                raise ValueError("Impossible de créer une partie avec les 2 mêmes équipes")
+            else :
+                doInsertPartie(date_partie, heure_debut, lieu_partie)
+                idPartie = doselectPartieID(date_partie, heure_debut, lieu_partie)[0][0]
+                doInsertDonne(points_equipe1, points_equipe2, "null", equipe1, equipe2, idPartie)
         except Exception as e:
             message = str(e)
             typ = "danger"
 
-        # Réutilisation du code pour afficher les parties en direct après insertion
-        return self.Afich_Partie_Direct()
+        return self.Afich_Partie_Direct(message, typ)
 
     @cherrypy.expose
     def Afich_Partie_Direct_Insert2(self, points_equipe1, points_equipe2, idPartie, id_equipe1, id_equipe2):
@@ -444,14 +449,15 @@ class InterfaceWeb(object):
             id_equipe1 (int): ID de l'équipe 1.
             id_equipe2 (int): ID de l'équipe 2.
         """
+        message=""
+        typ=""
         try:
             doInsertDonne(points_equipe1, points_equipe2, "null", id_equipe1, id_equipe2, idPartie)
         except Exception as e:
             message = str(e)
             typ = "danger"
 
-        # Réutilisation du code pour afficher les parties en direct après insertion
-        return self.Afich_Partie_Direct()
+        return self.Afich_Partie_Direct(message, typ)
     
 if __name__ == '__main__':
     print("\033[92m___________________________________________________________________________\n\n██╗      █████╗      ██████╗ ██████╗ ██╗███╗   ██╗ ██████╗██╗  ██╗███████╗\n██║     ██╔══██╗    ██╔════╝██╔═══██╗██║████╗  ██║██╔════╝██║  ██║██╔════╝\n██║     ███████║    ██║     ██║   ██║██║██╔██╗ ██║██║     ███████║█████╗  \n██║     ██╔══██║    ██║     ██║   ██║██║██║╚██╗██║██║     ██╔══██║██╔══╝  \n███████╗██║  ██║    ╚██████╗╚██████╔╝██║██║ ╚████║╚██████╗██║  ██║███████╗\n╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚══════╝\n___________________________________________________________________________\n\033[0m")

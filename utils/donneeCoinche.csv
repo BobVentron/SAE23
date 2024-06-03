@@ -68,7 +68,6 @@ valets,null,0,0,0,1,6,14
 
 [TableEncheres]
 #couleur; hauteur; numero; IdDonne
-#sans-atout,80,1,1
 pique,85,1,2
 careau,90,2,2
 pique,95,3,2
