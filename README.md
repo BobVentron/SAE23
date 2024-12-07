@@ -85,56 +85,56 @@ actuellement si.
 
 Il a été réalisées en plus l'Affichages des joueur par orde alphabétique
 
-Soleilhac_Bastien_SAE23_final
-├── res
-│   ├── css
-│   │   ├── bootstrap.css                   # fichier de style pour bootstrap      
-│   │   ├── index.css                       # Style pour le fichier index.html
-│   │   ├── insert_style.css                # Style pour les fichiers html d'insertion
-│   │   ├── partie_direct_style.css         # Style pour les fichier Partie_Direct.html
-│   │   └── style.css                       # Style general pour tout les Templates
-│   ├── font                                # Dossier contenant tout les policess
-│   │   ├── BroncoPersonalUse.ttf
-│   │   ├── Chunkfive Ex.ttf
-│   │   └── dejav-serif.ttf
-│   ├── images                              # Dossier contenant toutes les images
-│   │   ├── as.png
-│   │   ├── carreau.png     
-│   │   ├── coeur.png
-│   │   ├── favicon.ico
-│   │   ├── main_carte.jpg
-│   │   ├── main_carte2.jpg
-│   │   ├── trefle.png
-│   │   └── trefle2.png
-│   ├── js                                  # Dossier contenant les fichier js pour le site
-│   │   ├── bootstrap.bundle.min.js         # fichier bootstrap pour l'accordéon pour la partie publiv
-│   │   ├── bootstrap.min.js                # fichier bootstrap pour le style de l'app
-│   │   ├── jquery-3.5.0.min.js             # Obligatoire avec bootstrap
-│   │   └── script.js                       # Différents script utiilser pas l'app Web
-│   ├── templates
-│   │   ├── aff_AnnonceJoueur.html          # Templates qui permet d'affichier les annonces d'un joueur sélectionner 
-│   │   ├── aff_AnnoncePartie.html          # Templates qui permet d'affichier les annonces d'une partie sélectionner
-│   │   ├── aff_liste.html                  # Templates qui permet d'affichier différents Liste, contenue de certaine table
-│   │   ├── aff_texte.html                  # Templates qui permet différents texte
-│   │   ├── index.html                      # Templates de la page d'acceuil du site Web
-│   │   ├── Insert_Annonces.html            # Templates de la page qui permet d'insérer une annonce dans la base de donée
-│   │   ├── Insert_Donne.html               # Templates de la page qui permet d'insérer une donne dans la base de donées
-│   │   ├── Insert_Encheres.html            # Templates de la page qui permet d'insérer une encheres dans la base de donées
-│   │   ├── Insert_Equipe.html              # Templates de la page qui permet d'insérer une équipe dans la base de donées
-│   │   ├── Insert_Joueurs.html             # Templates de la page qui permet d'insérer un joueur dans la base de donées
-│   │   ├── Insert_Partie.html              # Templates de la page qui permet d'insérer une partie dans la base de donées
-│   │   ├── Modif_elem.html                 # Templates de la page qui permet de modifier un élément d'une table dans la base de donées
-│   │   ├── Partie_Direct.html              # Templates de la partie dynamique/public du site
-│   │   ├── Supp_elem.html                  # Templates de la page qui permet de supprimer un élément d'une table dans la base de donées
-│   │   └── template.html                   # Templates qui contient la base d'une page html, la navbar et le footer
-├── utils
-│   ├── BDcoincheUtils.py                   # Fichier contenant tout les fonction utile pour le site web
-│   ├── donneeCoinche.csv                   # fichier contenant des données permetant d'initialiser la base de donées 
-│   ├── loadConfig.py                       # fichier qui contient des fonction critique pour l'aplication tel que le chargment de la config, l'execution des requetes sql, la connection a la base de donées
-│   ├── mkRequest.py                        # Dans ce ficher tout ces fonction prennent plusieurs parametres, Et renvoie un string, Tout ces fonction permet d'inserer dans des requete sql des valeurs specifique.
-│   ├── Request.py                          # Ce fichier contient sous forme de 3  dictionnaire  les requetes nessesaire a l'appliquation pour : créer la base, inserer des elements, selection des elements
-├── config.txt                              # fichier contenant la configuration de l'aplication WEB
-├── createBase.py                           # Fichier permetant de créer la base de données et d'importer des valeurs dedans 
-├── Dump.sql                                # fichier permetant de recréer la base de données, avec les données
-├── interfaceWeb.py                         # fichier principal qui permet l'execution de l'appliquation WEB
+Soleilhac_Bastien_SAE23_final  
+├── res  
+│   ├── css  
+│   │   ├── bootstrap.css                   # fichier de style pour bootstrap        
+│   │   ├── index.css                       # Style pour le fichier index.html  
+│   │   ├── insert_style.css                # Style pour les fichiers html d'insertion  
+│   │   ├── partie_direct_style.css         # Style pour les fichier Partie_Direct.html  
+│   │   └── style.css                       # Style general pour tout les Templates  
+│   ├── font                                # Dossier contenant tout les policess  
+│   │   ├── BroncoPersonalUse.ttf  
+│   │   ├── Chunkfive Ex.ttf  
+│   │   └── dejav-serif.ttf  
+│   ├── images                              # Dossier contenant toutes les images  
+│   │   ├── as.png  
+│   │   ├── carreau.png       
+│   │   ├── coeur.png  
+│   │   ├── favicon.ico  
+│   │   ├── main_carte.jpg  
+│   │   ├── main_carte2.jpg  
+│   │   ├── trefle.png  
+│   │   └── trefle2.png  
+│   ├── js                                  # Dossier contenant les fichier js pour le site  
+│   │   ├── bootstrap.bundle.min.js         # fichier bootstrap pour l'accordéon pour la partie publiv  
+│   │   ├── bootstrap.min.js                # fichier bootstrap pour le style de l'app  
+│   │   ├── jquery-3.5.0.min.js             # Obligatoire avec bootstrap  
+│   │   └── script.js                       # Différents script utiilser pas l'app Web  
+│   ├── templates  
+│   │   ├── aff_AnnonceJoueur.html          # Templates qui permet d'affichier les annonces d'un joueur sélectionner   
+│   │   ├── aff_AnnoncePartie.html          # Templates qui permet d'affichier les annonces d'une partie sélectionner  
+│   │   ├── aff_liste.html                  # Templates qui permet d'affichier différents Liste, contenue de certaine table  
+│   │   ├── aff_texte.html                  # Templates qui permet différents texte  
+│   │   ├── index.html                      # Templates de la page d'acceuil du site Web  
+│   │   ├── Insert_Annonces.html            # Templates de la page qui permet d'insérer une annonce dans la base de donée  
+│   │   ├── Insert_Donne.html               # Templates de la page qui permet d'insérer une donne dans la base de donées  
+│   │   ├── Insert_Encheres.html            # Templates de la page qui permet d'insérer une encheres dans la base de donées  
+│   │   ├── Insert_Equipe.html              # Templates de la page qui permet d'insérer une équipe dans la base de donées  
+│   │   ├── Insert_Joueurs.html             # Templates de la page qui permet d'insérer un joueur dans la base de donées  
+│   │   ├── Insert_Partie.html              # Templates de la page qui permet d'insérer une partie dans la base de donées  
+│   │   ├── Modif_elem.html                 # Templates de la page qui permet de modifier un élément d'une table dans la base de donées  
+│   │   ├── Partie_Direct.html              # Templates de la partie dynamique/public du site  
+│   │   ├── Supp_elem.html                  # Templates de la page qui permet de supprimer un élément d'une table dans la base de donées  
+│   │   └── template.html                   # Templates qui contient la base d'une page html, la navbar et le footer  
+├── utils  
+│   ├── BDcoincheUtils.py                   # Fichier contenant tout les fonction utile pour le site web  
+│   ├── donneeCoinche.csv                   # fichier contenant des données permetant d'initialiser la base de donées   
+│   ├── loadConfig.py                       # fichier qui contient des fonction critique pour l'aplication tel que le chargment de la config, l'execution des requetes  sql, la connection a la base de donées  
+│   ├── mkRequest.py                        # Dans ce ficher tout ces fonction prennent plusieurs parametres, Et renvoie un string, Tout ces fonction permet d'inserer dans des requete sql des valeurs specifique.  
+│   ├── Request.py                          # Ce fichier contient sous forme de 3  dictionnaire  les requetes nessesaire a l'appliquation pour : créer la base, inserer des elements, selection des elements  
+├── config.txt                              # fichier contenant la configuration de l'aplication WEB  
+├── createBase.py                           # Fichier permetant de créer la base de données et d'importer des valeurs dedans   
+├── Dump.sql                                # fichier permetant de recréer la base de données, avec les données  
+├── interfaceWeb.py                         # fichier principal qui permet l'execution de l'appliquation WEB  
 └── README.txt
